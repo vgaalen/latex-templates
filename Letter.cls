@@ -9,8 +9,9 @@
 \DeclareOption{rightGreeting}{\def\@rightGreeting}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
-\LoadClass[notitlepage]{article}
+%\LoadClass[notitlepage]{article}
 %\LoadClass{article}
+\LoadClass{minimal}
 
 \RequirePackage[a4paper, margin=0.75in]{geometry}
 %\geometry{a4paper, margin=0.75in}
@@ -50,57 +51,62 @@
         \RaggedRight
         \@recipientName \\
         \ifdefvoid{\@recipientAddress}{}{\@recipientAddress \vspace{0.25cm} \\} 
-        \ifdefvoid{\@title}{}{\@title \vspace{0.25cm} \\}
+        %\ifdefvoid{\@title}{}{\@title \vspace{0.25cm} \\}
+        \justifying
         \end{flushleft}
-        \vspace{0.5cm}\\
+        \vspace{0.25cm}
       \end{minipage}
       \begin{minipage}[t]{8.6cm}
         \begin{flushright}
         \RaggedLeft
-        \@authorName 
-        \vspace{0.25cm} \\
-        \ifdefvoid{\@authorAddress}{}{\@authorAddress \vspace{0.25cm} \\}
-        \ifdefvoid{\@authorTel}{}{\href{tel:\@authorTel}{\faPhone \, \@authorTel} \\}
-        \ifdefvoid{\@authorEmail}{}{\href{mailto:\@authorEmail}{\faEnvelope[regular] \, \@authorEmail}}
-        \vspace{0.25cm}\\
-        \today
+        \hfill \@authorName \\
+        \vspace{0.25cm}
+        \ifdefvoid{\@authorAddress}{}{\hfill \@authorAddress \vspace{0.25cm} \\}
+        \ifdefvoid{\@authorTel}{}{\hfill \href{tel:\@authorTel}{\faPhone \, \@authorTel} \\}
+        \ifdefvoid{\@authorEmail}{}{\hfill \href{mailto:\@authorEmail}{\faEnvelope[regular] \, \@authorEmail} \\}
+        \vspace{0.25cm}
+        \hfill \today
         \vspace{0.5cm}
+        \justifying
         \end{flushright}
       \end{minipage}
     }{
       \begin{flushright}
       \RaggedLeft
-      \@authorName \\
-      \ifdefvoid{\@authorAddress}{}{\@authorAddress}
+      \hfill \@authorName \\
+      \ifdefvoid{\@authorAddress}{}{\hfill \@authorAddress}
       \vspace{0.25cm} \\
-      \ifdefvoid{\@authorTel}{}{\href{tel:\@authorTel}{\faPhone \, \@authorTel}}
-      \ifdefvoid{\@authorEmail}{}{\href{mailto:\@authorEmail}{\faEnvelope[regular] \, \@authorEmail}}
+      \ifdefvoid{\@authorTel}{}{\hfill \href{tel:\@authorTel}{\faPhone \, \@authorTel} \\}
+      \ifdefvoid{\@authorEmail}{}{\hfill \href{mailto:\@authorEmail}{\faEnvelope[regular] \, \@authorEmail}}
       \vspace{0.25cm} \\
-      \today
+      \hfill \today
+      \justifying
       \end{flushright}
 
       \vspace{0.25cm}
       \@recipientName \\
       \ifdefvoid{\@recipientAddress}{}{\@recipientAddress}
       \vspace{0.25cm} \\
-      \ifdefvoid{\@title}{}{\@title \vspace{0.25cm} \\}
+      %\ifdefvoid{\@title}{}{\@title \vspace{0.25cm} \\}
       \vspace{0.25cm} \\ 
     }
 }
 
 \newcommand*\makeclosing{
   \ifdefvoid{\@rightGreeting}{
-    \vspace{0.5cm} \\
+    \vspace{0.5cm}
     \@closing
-    \vspace{1cm} \\
+    \vspace{0.5cm} \\
+    \noindent
     \@authorName
   }{
     \begin{flushright}
     \RaggedLeft
+    \vspace{0.5cm}
+    \hfill \@closing
     \vspace{0.5cm} \\
-    \@closing
-    \vspace{1cm} \\
-    \@authorName
+    \noindent
+    \hfill \@authorName
     \end{flushright}
   }
 }
