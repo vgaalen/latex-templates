@@ -34,14 +34,14 @@
 % Figures and Tables
 \RequirePackage{array}
 \RequirePackage{booktabs}
-\RequirePackage[margin=0cm,font={color=template_text,small,sl},labelfont={color=template_text,bf,sl},tableposition=top,singlelinecheck=false,hypcap]{caption}
+\RequirePackage[margin=0cm,font={small,sl},labelfont={bf,sl},tableposition=top,singlelinecheck=false,hypcap]{caption}
 \RequirePackage{float}
 \RequirePackage{graphicx}
 \RequirePackage{longtable}
 \RequirePackage{multirow}
 \RequirePackage{pdfpages}
 \RequirePackage{siunitx}
-\RequirePackage[labelfont={color=template_text,bf},textfont=it,singlelinecheck=false, font={color=template_text,footnotesize},justification=raggedright]{subcaption}
+\RequirePackage[labelfont={bf},textfont=it,singlelinecheck=false, font={footnotesize},justification=raggedright]{subcaption}
 \RequirePackage{tabularx}
 
 % Other
@@ -78,6 +78,8 @@
 
 \hypersetup{colorlinks, allcolors=., linkcolor=., citecolor=., urlcolor=.}
 \setlength{\parindent}{0cm} % turn off indenting
+
+\setuptodonotes{inline} % move todo-notes to inline instead of the margin
 
 \renewcommand{\maketitle}{
   \thispagestyle{empty}
