@@ -1,0 +1,24 @@
+name: Compile PDF
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: BuildLetter
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: LetterTemplate.tex
+      - name: BuildReport
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: ReportTemplate.tex
