@@ -15,6 +15,7 @@
 \RequirePackage[sfdefault, light]{inter}
 \renewcommand{\bfseries}{\intermedium}
 \def\lighttitlestyle{\interextralight}
+\RequirePackage{ulem}
 
 % Core Packages
 \RequirePackage{comment}
@@ -78,7 +79,6 @@
 
 \hypersetup{colorlinks, allcolors=., linkcolor=., citecolor=., urlcolor=.}
 \setlength{\parindent}{0cm} % turn off indenting
-
 \setuptodonotes{inline} % move todo-notes to inline instead of the margin
 
 \renewcommand{\maketitle}{
@@ -87,11 +87,16 @@
     \lighttitlestyle\fontsize{25}{35}\color{blue}\selectfont\@title \\
     \ifdefvoid{\@subtitle}{}{\lighttitlestyle\fontsize{22}{24}\color{lightgrey}\selectfont\@subtitle \\}
 
+    \ifdefvoid{\@author}{}{
     \vspace{2cm}
-
     \lighttitlestyle\fontsize{16}{20}\color{blue}\selectfont\@author \\
+    }
+    \ifdefvoid{\@affiliation}{}{
     \lighttitlestyle\fontsize{12}{16}\color{text_color}\selectfont\@affiliation \\
+    }
+    \ifdefvoid{\@authorEmail}{}{
     \lighttitlestyle\fontsize{12}{16}\color{text_color}\selectfont\@authorEmail \\
+    }
 
     \vspace{1cm}
     
@@ -208,5 +213,8 @@
 \let\apjlett=\apjl 
 \let\apjsupp=\apjs 
 \let\applopt=\ao 
+
+%% added mar 21, 2025
+\newcommand\jatis{\ref*jnl{JATIS}} % % Journal of Astronomical Telescopes, Instruments, and Systems
 
 \makeatother
