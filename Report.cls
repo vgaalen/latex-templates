@@ -97,28 +97,34 @@
     \ifdefvoid{\@authorEmail}{}{
     \lighttitlestyle\fontsize{12}{16}\color{text_color}\selectfont\@authorEmail \\
     }
-
-    \vspace{1cm}
     
     \ifdefvoid{\@logo}{}{
     \begin{tikzpicture}[remember picture, overlay]
-    \node[above=8mm] at (current page.south) {
-      \includegraphics[width=0.5\linewidth]{\@logo}
-    };
+            \ifdefvoid{\@coverpage}
+            {
+                \vspace{1cm}
+                \includegraphics[width=0.5\linewidth]{\@logo}
+            }
+            {
+                \node[above=8mm] at (current page.south) {
+                    \includegraphics[width=0.5\linewidth]{\@logo}
+                };
+            }
     \end{tikzpicture}
     }
 
     \ifdefvoid{\@address}{}{
-      \begin{tikzpicture}[remember picture, overlay]
-        \node[above=10mm] at (current page.south) {
-          \lighttitlestyle\fontsize{10}{12}\color{lightgrey}\selectfont\@address
-        }
-      \end{tikzpicture}
+      \ifdefvoid{\@coverpage}{\vspace{1cm}}{\vfill}
+      %\begin{tikzpicture}[remember picture, overlay]
+      %\node[above=10mm] at (current page.south) {
+      \lighttitlestyle\fontsize{10}{12}\color{lightgrey}\selectfont\@address
+      %  };
+      %\end{tikzpicture}
     }
 
   \end{center}
 
-  \ifdefvoid{\@coverpage}{}{\newpage}
+  \ifdefvoid{\@coverpage}{\vspace{1cm}}{\newpage}
 }
 
 % Setup Headers
