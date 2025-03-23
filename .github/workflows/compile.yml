@@ -35,6 +35,7 @@ jobs:
             ./SlidesTemplate.pdf
       - name: Commit PDF 
         run: |
+          git pull
           git switch pdf
           git config --local user.email "78648649+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
