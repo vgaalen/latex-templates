@@ -21,8 +21,7 @@ jobs:
             LetterTemplate.tex
             ReportTemplate.tex
             SlidesTemplate.tex
-      - name: Upload Templates
-        uses: actions/upload-artifacts@v3
-        with:
-          name: PDFs
-          path: ./*.pdf
+      - name: List files after build (debug)
+        run: |
+          echo "Listing generated files..."
+          ls -alh ./*.pdf  # Make sure the PDFs are being generated
