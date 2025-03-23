@@ -115,11 +115,7 @@
 
     \ifdefvoid{\@address}{}{
       \ifdefvoid{\@coverpage}{\vspace{1cm}}{\vfill}
-      %\begin{tikzpicture}[remember picture, overlay]
-      %\node[above=10mm] at (current page.south) {
       \lighttitlestyle\fontsize{10}{12}\color{lightgrey}\selectfont\@address
-      %  };
-      %\end{tikzpicture}
     }
 
   \end{center}
