@@ -24,3 +24,8 @@ jobs:
         run: |
           echo "Listing generated files..."
           ls -alh ./*.pdf  # Make sure the PDFs are being generated
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: ./LetterTemplate.pdf
