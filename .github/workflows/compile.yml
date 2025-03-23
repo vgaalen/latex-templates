@@ -14,21 +14,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: BuildLetter
+      - name: Build Templates
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: LetterTemplate.tex
-      - name: SaveLetter
+          root_file: |
+            LetterTemplate.tex
+            ReportTemplate.tex
+            SlidesTemplate.tex
+      - name: Upload Templates
         uses: actions/upload-artifacts@v4
         with:
-          name: letter
-          path: LetterTemplate.pdf
-      - name: BuildReport
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: ReportTemplate.tex
-      - name: SaveReport
-        uses: actions/upload-artifact@v4
-        with:
-          name: report
-          path: ReportTemplate.pdf
+          name: PDFs
+          path: *.pdf
