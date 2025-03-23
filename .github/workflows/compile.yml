@@ -33,3 +33,11 @@ jobs:
             ./LetterTemplate.pdf
             ./ReportTemplate.pdf 
             ./SlidesTemplate.pdf
+      - name: Commit PDF 
+        run: |
+          git switch pdf
+          git config --local user.email "78648649+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add *.pdf 
+          git commit -m "Generated PDFs"
+          git push origin pdf 
